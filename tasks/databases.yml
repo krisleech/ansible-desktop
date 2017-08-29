@@ -55,3 +55,7 @@
     - postgresql
     - postgresql-contrib
     - libpq-dev
+
+- name: Install Solr
+  sudo: true
+  apt: name=solr-jetty state=installed
