@@ -57,3 +57,7 @@
 - name: Install Alarm Clock
   sudo: true
   apt: name=alarm-clock-applet state=installed
+
+- name: Redshift
+  sudo: true
+  apt: name=redshift-gtk state=installed
