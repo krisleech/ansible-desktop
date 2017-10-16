@@ -56,6 +56,10 @@
     - postgresql-contrib
     - libpq-dev
 
+# https://www.pgcli.com/
+- name: Install pgcli
+  apt: name=pgcli state=installed
+
 - name: Install Solr
   sudo: true
   apt: name=solr-jetty state=installed
