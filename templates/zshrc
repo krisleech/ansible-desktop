@@ -86,3 +86,7 @@ alias be="bundle exec"
 alias here='xdg-open $PWD'
 # open an new terminal in the current directory
 alias term='nohup gnome-terminal --working-directory=$PWD >&/dev/null'
+
+# use neovim instead of vim
+alias vim='nvim'
+alias vimdiff='nvim -d'
