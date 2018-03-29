@@ -26,7 +26,12 @@
 
 - name: Download Source Code Pro
   sudo: false
-  unarchive: src=https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz dest=/home/{{user}}/.fonts/ copy=no creates=/home/{{user}}/.fonts/OTF/file:///home/kris/Downloads/source-code-pro-2.030R-ro-1.050R-it/OTF/SourceCodePro-Black.otf
+  unarchive: src=https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz dest=/home/{{user}}/.fonts/ copy=no creates=/home/{{user}}/.fonts/source-code-pro-2.030R-ro-1.050R-it/OTF/SourceCodePro-Black.otf
+  register: font_installed
+
+- name: Download Fira fonts
+  sudo: false
+  unarchive: src=https://github.com/tonsky/FiraCode/releases/download/1.205/FiraCode_1.205.zip dest=/home/{{user}}/.fonts/ copy=no creates=/home/{{user}}/.fonts/ttf/FiraCode-Regular.ttf
   register: font_installed
 
 - name: Update font cache
