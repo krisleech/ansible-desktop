@@ -1,0 +1,31 @@
+set surround
+
+set hlsearch
+set scrolloff=3
+set ignorecase smartcase
+set showmode
+set history=1000
+set relativenumber
+set number
+
+let mapleader = ","
+
+map <space> ?
+
+imap jj <Esc>
+vmap jj <Esc>
+
+map === :action ReformatCode<CR>
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-k> <c-w>k
+nnoremap <c-j> <c-w>j
+
+nmap <leader>f :action GotoFile<CR>
+
+nmap <leader>R :action :cursive.repl.actions/load-file<CR>
+nmap <leader>r :action :cursive.repl.actions/run-top-sexp<CR>
+nmap <leader>gr :action :cursive.repl.actions/jump-to-repl<CR>
+
+nmap <leader>d :action CloseEditor<CR>
