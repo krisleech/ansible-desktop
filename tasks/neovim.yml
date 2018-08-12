@@ -23,6 +23,9 @@
        accept_hostkey=yes
   when: stat_nvim.stat.exists == False
 
+- name: Install Python client for NeoVim
+  pip: name=neovim
+
 # FIXME: fails due to need for user input on fresh install
 # - name: Install NeoVIM plugins
 #   sudo: false
