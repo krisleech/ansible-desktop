@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   connection: local
-  sudo: yes
+  become: true
 
   vars_files:
     - vars.yml
@@ -9,14 +9,14 @@
   tasks:
     - include: tasks/base.yml tags=base
     - include: tasks/network.yml tags=base
-    - include: tasks/samba.yml tags=base
+    #- include: tasks/samba.yml tags=base
     - include: tasks/webdev.yml tags=dev
     - include: tasks/ssh.yml tags=base
     - include: tasks/apps.yml tags=apps
-    - include: tasks/ngrok.yml tags=dev
-    - include: tasks/calibre.yml tags=apps
+    #- include: tasks/ngrok.yml tags=dev
+    #- include: tasks/calibre.yml tags=apps
     - include: tasks/vlc.yml tags=apps
-    - include: tasks/yubikey.yml tags=secops
+    #- include: tasks/yubikey.yml tags=secops
     - include: tasks/dropbox.yml tags=apps
     - include: tasks/scrot.yml tags=apps
     - include: tasks/skype.yml tags=apps
@@ -40,7 +40,7 @@
     - include: tasks/gnome.yml tags=desktop
     - include: tasks/i3.yml tags=desktop
     - include: tasks/neovim.yml tags=dev
-    - include: tasks/spacemacs.yml tags=dev
+    #- include: tasks/spacemacs.yml tags=dev
     - include: tasks/tmux.yml tags=dev
     - include: tasks/git.yml tags=dev
     - include: tasks/gitencrypt.yml tags=dev
@@ -53,8 +53,8 @@
     - include: tasks/databases.yml tags=databases
     - include: tasks/gpg.yml tags=secops
     - include: tasks/clamav.yml tags=secops
-    - include: tasks/keybase.yml tags=secops
-    - include: tasks/dotfiles.yml tags=dotfiles
+    #- include: tasks/keybase.yml tags=secops
     - include: tasks/hardware.yml tags=drivers
     - include: tasks/sec.yml tags=apps
-    - include: tasks/fitbit.yml tags=apps
+    #- include: tasks/fitbit.yml tags=apps
+    - include: tasks/email.yml tags=apps

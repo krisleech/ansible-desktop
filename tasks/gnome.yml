@@ -6,5 +6,5 @@
   apt: name=conky state=installed
 
 - name: Copy .conkyrc
-  sudo: false
+  become: false
   template: src=templates/conkyrc dest=/home/{{user}}/.conkyrc

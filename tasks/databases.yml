@@ -1,65 +1,80 @@
 ---
 - name: Install Redis
-  apt: name=redis-server state=installed
+  apt: name=redis-server state=present
 
-- name: Install ElasticSearch
-  apt: name=elasticsearch state=installed
+# FIXME:
+# - name: Install ElasticSearch
+#   apt: name=elasticsearch state=present
+#   enabled: false
 
   # https://discuss.elastic.co/t/cant-start-elasticsearch-with-ubuntu-16-04/48730/9
 # - name: Fix ElasticSearch config
-#   sudo: true
+#   become: true
 #   command: "sed -i 's/#START_DAEMON/START_DAEMON/' /etc/default/elasticsearch"
 
 - name: Install MySQL
-  apt: name=mysql-server state=installed
+  apt: name=mysql-server state=present
 
 - name: Install MySQL Development headers
-  apt: name=libmysqlclient-dev state=installed
+  apt: name=libmysqlclient-dev state=present
 
 - name: MySQL should be running
-  service: name=mysql state=running enabled=yes
+  service: name=mysql state=started enabled=yes
 
 - name: Copy MySQL client configuration
-  sudo: false
+  become: false
   copy: src=templates/my.cnf dest=/home/{{user}}/.my.cnf
 
 # http://mycli.net/
 - name: Install MyCLI
-  apt: name=mycli state=installed
+  apt: name=mycli state=present
 
 - name: Copy myCLI configuration
-  sudo: false
+  become: false
   copy: src=templates/myclirc dest=/home/{{user}}/.myclirc
 
 - name: Install MySQL Workbench
-  apt:  name=mysql-workbench state=installed
+  apt:  name=mysql-workbench state=present
 
 - name: Symlink MySQL socket
-  sudo: false
+  become: false
   file: src=/var/run/mysqld/mysqld.sock dest=/tmp/mysql.sock state=link
+  ignore_errors: yes
 
 - name: Install SQLite
-  apt: name=sqlite3 state=installed
+  apt: name=sqlite3 state=present
 
 - name: Install SQLite3 development headers
-  apt: name=libsqlite3-dev state=installed
+  apt: name=libsqlite3-dev state=present
 
 - name: Install RabbitMQ
   sudo: true
-  apt: name=rabbitmq-server state=installed
+  apt: name=rabbitmq-server state=present
+
+- name: Prevent RabbitMQ starting on boot
+  service:
+    name: rabbitmq-server
+    state: stopped
+    enabled: false
 
 - name: Install Postgres Database
   sudo: true
-  apt: pkg={{item}} state=installed
+  apt: pkg={{item}} state=present
   with_items:
     - postgresql
     - postgresql-contrib
     - libpq-dev
 
+- name: Prevent Postgres starting on boot
+  service:
+    name: postgresql
+    state: stopped
+    enabled: false
+
 # https://www.pgcli.com/
 - name: Install pgcli
-  apt: name=pgcli state=installed
+  apt: name=pgcli state=present
 
 - name: Install Solr
   sudo: true
-  apt: name=solr-jetty state=installed
+  apt: name=solr-jetty state=present

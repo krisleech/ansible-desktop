@@ -1,29 +1,6 @@
 ---
-# Install & Configure Dropbox
+# Install Dropbox
 
-- name: Check if dropbox is installed
-  command: dpkg-query -W dropbox
-  register: dropbox_check_deb
-  failed_when: dropbox_check_deb.rc > 1
-  changed_when: dropbox_check_deb.rc == 1
-
-- name: Install dropbox dependencies
-  apt: name=python-gpgme
-  sudo: true
-  when: dropbox_check_deb.rc == 1
-
-- name: Download dropbox
-  get_url: 
-    url=https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
-    dest="/home/{{user}}/Downloads/dropbox.deb"
-  when: dropbox_check_deb.rc == 1
-
-- name: Install dropbox
-  apt: deb="/home/{{user}}/Downloads/dropbox.deb"
-  sudo: true
-  when: dropbox_check_deb.rc == 1
-
-- name: Restart Nautilus
-  command: "killall nautilus &> /dev/null"
-  ignore_errors: yes
-  when: dropbox_check_deb.rc == 1
+- name: Install Dropbox
+  apt:
+    name: nautilus-dropbox

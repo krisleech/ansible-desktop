@@ -78,6 +78,9 @@ bindsym $mod+b split h
 # split in vertical orientation
 bindsym $mod+v split v
 
+# above is not working anymore... FIXME
+bindsym $mod+Shift+v split v
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 

@@ -1,6 +1,6 @@
 ---
 - name: Install Scnsht (screenshot to Dropbox)
-  sudo: false
+  become: false
   get_url:
     url: https://raw.githubusercontent.com/krisleech/scnsht/master/bin/scnsht
     dest: /home/{{user}}/bin/scnsht

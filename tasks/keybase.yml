@@ -4,6 +4,6 @@
   register: keybase_installed
 
 - name: Restart Keybase
-  sudo: false
+  become: false
   command: run_keybase
   when: keybase_installed.changed

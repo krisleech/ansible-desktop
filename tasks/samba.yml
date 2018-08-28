@@ -2,13 +2,12 @@
 #
 
 - name: 'Install Samba'
-  apt: name=samba state=installed
+  apt: name=samba state=present
 
 - name: Create share directory
-  become: no
+  become: false
   file: path=/home/{{user}}/share state=directory mode=0777
 
 - name: Add README to share
-  sudo: false
+  become: false
   template: src=templates/share_README dest=/home/{{user}}/share/README
-

@@ -1,41 +1,41 @@
 ---
 - name: Create ~/.fonts
-  sudo: false
+  become: false
   file: path=/home/{{user}}/.fonts state=directory mode=0755
 
 - name: Download Inconsolata font
-  sudo: false
+  become: false
   get_url:
     url: http://www.levien.com/type/myfonts/Inconsolata.otf
     dest: /home/{{user}}/.fonts/Inconsolata.otf
   register: font_installed
 
 - name: Download Monoid font
-  sudo: false
+  become: false
   unarchive: src=https://github.com/larsenwork/monoid/blob/release/Monoid.zip?raw=true dest=/home/{{user}}/.fonts/ copy=no creates=/home/{{user}}/.fonts/Monoid-Regular.ttf
   register: font_installed
 
 - name: Download Losevka fonts
-  sudo: false
+  become: false
   unarchive: src=https://github.com/be5invis/Iosevka/releases/download/v1.9.1/iosevka-pack-1.9.1.zip dest=/home/{{user}}/.fonts/ copy=no creates=/home/{{user}}/.fonts/iosevka-regular.ttf
   register: font_installed
 
 - name: Install Font Awesome
-  sudo: true
+  become: true
   apt: pkg=fonts-font-awesome state=installed
 
 - name: Download Source Code Pro
-  sudo: false
+  become: false
   unarchive: src=https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.tar.gz dest=/home/{{user}}/.fonts/ copy=no creates=/home/{{user}}/.fonts/source-code-pro-2.030R-ro-1.050R-it/OTF/SourceCodePro-Black.otf
   register: font_installed
 
 - name: Download Fira fonts
-  sudo: false
+  become: false
   unarchive: src=https://github.com/tonsky/FiraCode/releases/download/1.205/FiraCode_1.205.zip dest=/home/{{user}}/.fonts/ copy=no creates=/home/{{user}}/.fonts/ttf/FiraCode-Regular.ttf
   register: font_installed
 
 - name: Update font cache
-  sudo: true
+  become: true
   command: fc-cache
   when: font_installed.changed
 

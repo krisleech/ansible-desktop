@@ -6,15 +6,9 @@
 # This part of software is released under the terms of the GPLv3 license.
 #
 
-- name: Create home directories
-  become: no
-  file: path=/home/{{user}}/{{item}} state=directory mode=0755
-  with_items:
-    - dev
-    - bin
 
 - name: Build tools
-  apt: name={{item}} state=installed
+  apt: name={{item}} state=present
   with_items:
     - libtool
     -  libtool-bin
@@ -25,9 +19,11 @@
     -  pkg-config
     -  unzip
 
+- name: Install Python Pip
+  apt: name=python-pip
 
 - name: Install ectkeeper
-  apt: name=etckeeper state=installed
+  apt: name=etckeeper state=present
   register: etckeeper_installed
 
 # FIXME: the git repo does not exist stright away
@@ -43,13 +39,13 @@
 
 
 - name: Install NTP deamon
-  apt: name=ntp state=installed
+  apt: name=ntp state=present
 
 - name: Install ntpdate
-  apt: name=ntpdate state=installed
+  apt: name=ntpdate state=present
 
 - name: NTP should be running
-  service: name=ntp state=running enabled=yes
+  service: name=ntp state=started enabled=yes
 
 # FIXME: this fails, locally and on VM
 # - name: exec ntpdate
@@ -77,7 +73,7 @@
 
 - name: Install atop
   sudo: true
-  apt: name=atop state=installed
+  apt: name=atop state=present
 
 - name: atop service should be running
   service: name=atop state=running enabled=yes

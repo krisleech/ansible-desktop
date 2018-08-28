@@ -1,4 +1,4 @@
 ---
 - name: Install GPG2
-  apt: name=gnupg2 state=installed
+  apt: name=gnupg2 state=present
 

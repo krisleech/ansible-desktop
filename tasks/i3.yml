@@ -11,18 +11,18 @@
   apt: name=rofi state=installed
 
 - name: Create i3 config directories
-  sudo: false
+  become: false
   file: path=/home/{{user}}/.config/{{item}} state=directory mode=0755
   with_items:
     - i3
     - i3status
 
 - name: Copy i3 conf
-  sudo: false
+  become: false
   template: src=templates/i3_config dest=/home/{{user}}/.config/i3/config
 
 - name: Copy i3status conf
-  sudo: false
+  become: false
   template: src=templates/i3status_config dest=/home/{{user}}/.config/i3status/config
 
 # nautilus, by default, opens without the --no-desktop option which causes the
@@ -32,7 +32,7 @@
 # launcher instead of the default.
 #
 - name: Fix Nautilus in i3
-  sudo: false
+  become: false
   template: src=templates/nautilus.desktop dest=/home/{{user}}/.local/share/applications
 
 # Compton prevents screen tearing which happens when the screen updates a lot,
@@ -51,22 +51,13 @@
   sudo: true
   copy: src=templates/wallpapers/desktop.jpeg dest=/usr/share/backgrounds
 
-# i3 over Gnome
-- name: Install Gnome
-  sudo: true
-  apt: name={{item}} state=installed
-  with_items:
-    # - gnome-panel
-    - gnome-session
-    - gnome-settings-daemon
-
-- name: Gnome config
-  sudo: true
-  template: src=templates/gnome-i3.desktop dest=/usr/share/xsessions
-
-- name: Gnome config
-  sudo: true
-  template: src=templates/gnome-i3.session dest=/usr/share/gnome-session/sessions
+# - name: Gnome config
+#   sudo: true
+#   template: src=templates/gnome-i3.desktop dest=/usr/share/xsessions
+# 
+# - name: Gnome config
+#   sudo: true
+#   template: src=templates/gnome-i3.session dest=/usr/share/gnome-session/sessions
 
 # the Gnome desktop will overlay i3 windows
 - name: Turn off Gnome desktop

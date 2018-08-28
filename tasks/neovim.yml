@@ -1,6 +1,6 @@
 ---
 - name: Install XClip (copy/paste for the terminal)
-  apt: name=xclip state=installed
+  apt: name=xclip state=present
 
 - name: Check NeoVIM installed
   stat: path=/usr/bin/nvim
@@ -16,19 +16,23 @@
   apt: name=neovim state=latest
   # when: stat_nvim.stat.exists == False
 
+- name: Check NeoVIM config installed
+  stat: path=/home/{{user}}/.config/nvim
+  register: stat_nvim_config
+
 - name: Add NeoVIM configuration
-  sudo: false
+  become: false
   git: repo=git@github.com:krisleech/neovim-config.git
        dest=/home/{{user}}/.config/nvim
        accept_hostkey=yes
-  when: stat_nvim.stat.exists == False
+  when: stat_nvim_config.stat.exists == False
 
 - name: Install Python client for NeoVim
   pip: name=neovim
 
 # FIXME: fails due to need for user input on fresh install
 # - name: Install NeoVIM plugins
-#   sudo: false
+#   become: false
 #   command: nvim -c "PlugInstall | qa!"
 #   when: stat_nvim.stat.exists == False
 

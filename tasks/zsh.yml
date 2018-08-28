@@ -1,20 +1,21 @@
 ---
 - name: install zsh
-  apt: pkg=zsh state=installed
+  apt: pkg=zsh state=present
 
+# You need to logout and back in for this to take effect.
 - name: Set ZSH as default shell
   command: chsh -s /bin/zsh {{ user }}
 
 - name: Install Oh my ZSH
-  sudo: false
+  become: false
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git
        dest=/home/{{user}}/.oh-my-zsh
        accept_hostkey=yes
 
 - name: Copy zshrc
-  sudo: false
+  become: false
   template: src=templates/zshrc dest=/home/{{user}}/.zshrc force=yes
 
 - name: Copy .zshrc.local (once)
-  sudo: false
+  become: false
   copy: src=templates/zshrc.local dest=/home/{{user}}/.zshrc.local force=no

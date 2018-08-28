@@ -1,6 +1,7 @@
+# FIXME: No longer in Ubuntu repo for Bionic
 - name: Install ngrok (expose localhost over the net)
   sudo: true
-  apt: pkg={{ item }} state=installed
+  apt: pkg={{ item }} state=present
   with_items:
     - ngrok-server
     - ngrok-client

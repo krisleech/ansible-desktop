@@ -6,8 +6,16 @@
     dest: /home/{{user}}/bin/lein
     mode: 0755
 
+- name: Create .lein directory
+  file:
+    path: "/home/{{user}}/.lein"
+    state: directory
+    owner: "{{user}}"
+    group: "{{user}}"
+    mode: 0755
+
 - name: Install lein user profiles.clj
-  sudo: false
+  become: false
   template: src=templates/lein-profiles.clj dest=/home/{{user}}/.lein/lein-profiles.clj
 
 # http://ppa.launchpad.net/gnome-terminator/ppa/ubuntu bionic Release' does not have a Release file.
@@ -15,8 +23,9 @@
 #   sudo: true
 #   apt_repository: repo='ppa:mfikes/planck' state=present
 
-- name: Install Planck (ClojureScript REPL)
-  apt: name=planck state=installed
+# FIXME: no longer in Ubuntu repo's, see: https://twitter.com/mfikes/status/997070034894761984
+#- name: Install Planck (ClojureScript REPL)
+#  apt: name=planck state=installed
 
 - name: Chicken (Scheme to C)
   apt: name=chicken-bin state=installed

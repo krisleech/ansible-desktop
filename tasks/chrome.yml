@@ -1,16 +1,16 @@
 ---
+# FIXME: https://www.linuxbabe.com/ubuntu/install-google-chrome-ubuntu-18-04-lts
 # - name: Add Google PPA key
 #   sudo: true
 #   apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
 #
-# E:The repository 'http://ppa.launchpad.net/gnome-terminator/ppa/ubuntu bionic Release' does not have a Release file.
 # - name: Add Google PPA
 #   apt_repository: repo="deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" state=present
 #   sudo: true
 
-- name: Install Chrome stable
-  sudo: true
-  apt: name=google-chrome-stable state=installed
+# - name: Install Chrome stable
+#   sudo: true
+#   apt: name=google-chrome-stable state=present
 
 - name: Install latest chromium package with codecs
   apt: pkg="{{ item }}" state=present force=yes

@@ -9,12 +9,13 @@
   sudo: true
 
 - name: Create terminator config directory
-  sudo: false
-  file: path=/home/{{user}}/.config/terminator state=directory
+  become: false
+  file: path=/home/{{user}}/.config/terminator state=directory owner={{user}}
 
 - name: Copy Terminator config
-  sudo: false
+  become: false
   template: src=templates/terminator_config dest=/home/{{user}}/.config/terminator/config
+  owner: "{{user}}"
 
 - name: Install Terminology Terminal
   apt: name=terminology state=installed

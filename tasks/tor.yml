@@ -1,5 +1,5 @@
 ---
 - name: install Tor stable
   sudo: true
-  apt: name=tor state=installed
+  apt: name=tor state=present
 

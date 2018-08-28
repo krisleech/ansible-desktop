@@ -1,8 +1,8 @@
 ---
 - name: Install Tmux
-  apt: name=tmux state=installed
+  apt: name=tmux state=present
 
 - name: Copy .tmux.conf
-  sudo: false
+  become: false
   template: src=templates/tmux.conf dest=/home/{{user}}/.tmux.conf
 

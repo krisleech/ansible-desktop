@@ -18,16 +18,17 @@
     - ack-grep
     - silversearcher-ag
     - entr
+    - baobab
 
 - name: Copy Dotfiles
-  sudo: false
+  become: false
   template: src=templates/dotfiles/{{item}} dest=/home/{{user}}/.{{item}}
   with_items:
     - ackrc
     - agignore
 
 - name: Install FZF
-  sudo: false
+  become: false
   unarchive:
     src: https://github.com/junegunn/fzf-bin/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-linux_amd64.tgz
     dest: /home/{{user}}/bin
@@ -35,7 +36,7 @@
     copy: no
 
 - name: Install selecta
-  sudo: false
+  become: false
   get_url: url=https://raw.githubusercontent.com/garybernhardt/selecta/master/selecta dest=/home/{{user}}/bin/selecta mode=u+x
 
 # - name: Is Git Kraken installed
@@ -55,6 +56,9 @@
   sudo: true
   apt: name=alarm-clock-applet state=installed
 
-- name: Redshift
-  sudo: true
-  apt: name=redshift-gtk state=installed
+# not working: https://github.com/jonls/redshift/issues/636#issuecomment-412295941
+# https://github.com/jonls/redshift/issues/318
+# only works when started with sudo
+#- name: Redshift
+#  sudo: true
+#  apt: name=redshift-gtk state=installed

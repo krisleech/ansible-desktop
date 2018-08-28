@@ -1,4 +1,4 @@
 ---
 - name: Install PhantomJS
   sudo: true
-  apt: name=phantomjs state=installed
+  apt: name=phantomjs state=present

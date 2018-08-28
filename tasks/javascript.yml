@@ -17,7 +17,7 @@
   file: path=~/.npm-global state=directory
 
 - name: Change npm default directory
-  sudo: false
+  become: false
   shell: npm config set prefix '~/.npm-global'
 ###############################################################################
 

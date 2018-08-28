@@ -1,7 +1,7 @@
 ---
 # WARNING: gitencrypt has been deprecated
 - name: Install gitencrypt
-  sudo: false
+  become: false
   get_url:
     url: https://raw.githubusercontent.com/shadowhand/git-encrypt/legacy/gitcrypt
     dest: /home/{{user}}/bin/gitcrypt

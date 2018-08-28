@@ -3,4 +3,4 @@
 
 - name: Install Vagrant
   sudo: true
-  apt: name=vagrant state=installed
+  apt: name=vagrant state=present

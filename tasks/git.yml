@@ -6,6 +6,6 @@
     - gitk
 
 - name: Copy .gitconfig
-  sudo: false
+  become: false
   template: src=templates/gitconfig dest=/home/{{user}}/.gitconfig force=yes
 

@@ -1,20 +1,20 @@
 - name: Copy .ssh/config
-  sudo: false
+  become: false
   template: src=templates/ssh_config dest=/home/{{user}}/.ssh/config force=yes mode=600
 
 - name: Set ~/.ssh permission
-  sudo: false
+  become: false
   file: path=/home/{{user}}/.ssh mode=755 state=directory
 
 - name: Set SSH known_hosts permission
-  sudo: false
+  become: false
   file: path=/home/{{user}}/.ssh/known_hosts mode=644 state=touch
 
 - stat: path=/home/{{user}}/.ssh/identity
   register: identity
 
 - name: Set SSH key permissions
-  sudo: false
+  become: false
   file: path=/home/{{user}}/.ssh/{{item}} mode=600 state=file
   with_items:
     - identity

@@ -1,6 +1,6 @@
 ---
 - name: Install Emacs
-  apt: name=emacs state=installed
+  apt: name=emacs state=present
   sudo: true
   register: emacs_installed
 

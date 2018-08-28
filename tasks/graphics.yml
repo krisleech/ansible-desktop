@@ -1,9 +1,9 @@
 ---
 - name: Install Imagemagick (+ headers)
-  apt: pkg={{ item }} state=installed
+  apt: pkg={{ item }} state=present
   with_items:
     - imagemagick
     - libmagickwand-dev
 
 - name: Install GraphViz
-  apt: pkg=graphviz state=installed
+  apt: pkg=graphviz state=present
