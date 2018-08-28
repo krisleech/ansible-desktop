@@ -10,9 +10,10 @@
   sudo: false
   template: src=templates/lein-profiles.clj dest=/home/{{user}}/.lein/lein-profiles.clj
 
-- name: Add PPA for Planck
-  sudo: true
-  apt_repository: repo='ppa:mfikes/planck' state=present
+# http://ppa.launchpad.net/gnome-terminator/ppa/ubuntu bionic Release' does not have a Release file.
+# - name: Add PPA for Planck
+#   sudo: true
+#   apt_repository: repo='ppa:mfikes/planck' state=present
 
 - name: Install Planck (ClojureScript REPL)
   apt: name=planck state=installed

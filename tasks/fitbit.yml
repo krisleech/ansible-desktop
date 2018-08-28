@@ -5,7 +5,6 @@
   with_items:
     - python-dev
     - python-pip
-    - python-pip3
 
 - name: Install Galileo (Fitbit)
   pip: name=galileo

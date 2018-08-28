@@ -4,20 +4,22 @@
   sudo: true
   register: emacs_installed
 
-- stat: path=/home/{{user}}/.emacs.d/spacemacs.mk
-  register: spacemacs_stat
-
-- name: Remove existing emacs configuration
-  sudo: false
-  file: path=/home/{{user}}/.emacs.d/spacemacs.mk state=absent
-  when: spacemacs_stat.stat.exists == False
-
-- name: Install Spacemacs
-  sudo: false
-  git: repo=https://github.com/syl20bnr/spacemacs
-       dest=/home/{{user}}/.emacs.d
-       accept_hostkey=yes
-  when: spacemacs_stat.stat.exists == False
-
-
-
+# Needs fixing
+#
+# - stat: path=/home/{{user}}/.emacs.d/spacemacs.mk
+#   register: spacemacs_stat
+#
+# - name: Remove existing emacs configuration
+#   sudo: false
+#   file: path=/home/{{user}}/.emacs.d/spacemacs.mk state=absent
+#   when: spacemacs_stat.stat.exists == False
+#
+# - name: Install Spacemacs
+#   sudo: false
+#   git: repo=https://github.com/syl20bnr/spacemacs
+#        dest=/home/{{user}}/.emacs.d
+#        accept_hostkey=yes
+#   when: spacemacs_stat.stat.exists == False
+#
+#
+#

@@ -1,11 +1,11 @@
 ---
-- name: Add Opera PPA key
-  sudo: true
-  apt_key: url=https://deb.opera.com/archive.key state=present
-
-- name: Add Opera PPA
-  apt_repository: repo="deb https://deb.opera.com/opera-stable/ stable non-free" state=present
-  sudo: true
+# - name: Add Opera PPA key
+#   sudo: true
+#   apt_key: url=https://deb.opera.com/archive.key state=present
+#
+# - name: Add Opera PPA
+#   apt_repository: repo="deb https://deb.opera.com/opera-stable/ stable non-free" state=present
+#   sudo: true
 
 - name: Install Opera stable
   sudo: true

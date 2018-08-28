@@ -1,14 +1,6 @@
 ---
-- name: install compizconfig manager
-  apt: name=compizconfig-settings-manager state=installed
-
 - name: install Gnome standard themes
   apt: name=gnome-themes-standard state=installed
-
-# when an launcher icon is clicked it opens the app, click again to minimise
-- name: Launcher minimise on click
-  sudo: false
-  command: "gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true"
 
 - name: Install Conky
   apt: name=conky state=installed

@@ -6,9 +6,9 @@
   apt: name=elasticsearch state=installed
 
   # https://discuss.elastic.co/t/cant-start-elasticsearch-with-ubuntu-16-04/48730/9
-- name: Fix ElasticSearch config
-  sudo: true
-  command: "sed -i 's/#START_DAEMON/START_DAEMON/' /etc/default/elasticsearch"
+# - name: Fix ElasticSearch config
+#   sudo: true
+#   command: "sed -i 's/#START_DAEMON/START_DAEMON/' /etc/default/elasticsearch"
 
 - name: Install MySQL
   apt: name=mysql-server state=installed
@@ -50,7 +50,7 @@
 
 - name: Install Postgres Database
   sudo: true
-  apt: pkg=$item state=installed
+  apt: pkg={{item}} state=installed
   with_items:
     - postgresql
     - postgresql-contrib

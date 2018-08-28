@@ -1,5 +1,5 @@
 [Desktop Entry]
-NotShowIn=Unity;GNOME
+NotShowIn=GNOME
 Name=Files
 Comment=Access and organize files
 Exec=nautilus --new-window --no-desktop
@@ -7,7 +7,7 @@ Terminal=false
 Type=Application
 
 [Desktop Entry]
-NotShowIn=Unity;GNOME
+NotShowIn=GNOME
 Name=Nautilus
 Comment=Access and organize files
 Exec=nautilus --new-window --no-desktop
@@ -15,7 +15,7 @@ Terminal=false
 Type=Application
 
 [Desktop Entry]
-NotShowIn=Unity;GNOME
+NotShowIn=GNOME
 Name=nautilus
 Comment=Access and organize files
 Exec=nautilus --new-window --no-desktop

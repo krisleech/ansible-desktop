@@ -4,8 +4,8 @@ A simple and quick way to provision your development machine.
 
 Tested with:
 
-* Ansible 2.1
-* Ubuntu 16.01
+* Ansible 2.6
+* Ubuntu 18.04 (bionic)
 
 ## Features
 
@@ -19,7 +19,6 @@ Tested with:
 - Dropbox
 - Rocketchat, Skype, Slack
 - i3 Window Manager
-- Nunix Unity Theme
 - Yunikey support
 - Dotfiles
 - Coding fonts
@@ -43,7 +42,7 @@ git clone git@github.com:krisleech/ansible-desktop.git
 cd ansible-desktop
 ```
 
-You can also install Ansible 2.1 from [source](http://docs.ansible.com/ansible/intro_installation.html).
+You can also install Ansible from [source](http://docs.ansible.com/ansible/intro_installation.html).
 
 
 ## Configure
@@ -68,14 +67,8 @@ Install certain tags:
 
 ## Notes
 
-The numix theme is not enabled by default. To do so open the unity-tweak-tool
-and select the theme.
-
 There are several sessions which can be selected from the Greeter (login
-screen) including Unity (Ubuntu default), Gnome, i3, and Gnome+i3.
-
-I prefer Gnome+i3, this gives me a tiling window manager with all the
-conveniences of the Gnome underpinnings.
+screen) including Gnome (Ubuntu default) and i3.
 
 ## Vagrant/VirtualBox
 

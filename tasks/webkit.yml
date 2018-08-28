@@ -3,5 +3,5 @@
   sudo: true
   apt: name={{ item }} state=installed
   with_items:
-    - libwebkit-dev
+    # - libwebkit-dev
     - libqtwebkit-dev

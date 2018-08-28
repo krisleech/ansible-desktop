@@ -9,19 +9,19 @@
 - name: install base desktop apps
   apt: pkg=$item state=installed
   with_items:
-    - xorg
-    - rxvt-unicode-256color
+    # - xorg
+    # - rxvt-unicode-256color
     - i3
-    - gnome-core
+    # - gnome-core
     - unburden-home-dir
 
-- name: copy i3-gnome.session
-  copy: src=files/i3-gnome.session
-    dest=/usr/share/gnome-session/sessions/i3-gnome.session
-
-- name: copy i3-gnome.desktop
-  copy: src=files/i3-gnome.desktop
-    dest=/usr/share/xsessions/i3-gnome.desktop
+# - name: copy i3-gnome.session
+#   copy: src=files/i3-gnome.session
+#     dest=/usr/share/gnome-session/sessions/i3-gnome.session
+#
+# - name: copy i3-gnome.desktop
+#   copy: src=files/i3-gnome.desktop
+#     dest=/usr/share/xsessions/i3-gnome.desktop
 
 - name: enable unburden-home-dir
   lineinfile: > 

@@ -1,13 +1,13 @@
 
-- name: Add Docker PPA key
-  sudo: true
-  apt_key: url=https://download.docker.com/linux/ubuntu/gpg state=present
-
-- name: Add Docker PPA
-  apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_release_name }} stable"
-  sudo: true
-
+# - name: Add Docker PPA key
+#   sudo: true
+#   apt_key: url=https://download.docker.com/linux/ubuntu/gpg state=present
+#
+# - name: Add Docker PPA
+#   apt_repository:
+#     repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_release_name }} stable"
+#   sudo: true
+#
 - name: Install Docker
   apt: name={{item}}
   with_items:
@@ -19,6 +19,6 @@
 
 - name: Install Docker Compose
   get_url:
-    url: https://github.com/docker/compose/releases/download/1.14.0/docker-compose-Linux-x86_64
+    url: https://github.com/docker/compose/releases/download/1.22.0/docker-compose-Linux-x86_64
     dest: "/home/{{user}}/bin/docker-compose"
     mode: 0755

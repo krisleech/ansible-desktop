@@ -21,10 +21,6 @@
   shell: npm config set prefix '~/.npm-global'
 ###############################################################################
 
-- name: Symlink nodejs to node
-  sudo: true
-  file: src=/usr/bin/nodejs dest=/usr/bin/node state=link
-
 - name: Install Coffeescript
   apt: name=coffeescript state=installed
   sudo: true

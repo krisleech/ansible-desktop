@@ -38,7 +38,6 @@
     - include: tasks/scnsht.yml tags=apps
     - include: tasks/keepassx.yml tags=apps
     - include: tasks/gnome.yml tags=desktop
-    - include: tasks/numix.yml tags=desktop
     - include: tasks/i3.yml tags=desktop
     - include: tasks/neovim.yml tags=dev
     - include: tasks/spacemacs.yml tags=dev
@@ -49,7 +48,6 @@
     - include: tasks/virtualbox.yml tags=dev
     - include: tasks/boxes.yml tags=dev
     - include: tasks/docker.yml tags=dev
-    - include: tasks/imagemagick.yml tags=apps
     - include: tasks/test.yml tags=test
     # - include: tasks/rocketchat.yml tags=chat
     - include: tasks/databases.yml tags=databases

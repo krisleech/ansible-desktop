@@ -26,29 +26,26 @@
     - ackrc
     - agignore
 
-      # https://github.com/junegunn/fzf/issues/834
 - name: Install FZF
   sudo: false
-  unarchive: src=https://github.com/junegunn/fzf-bin/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-linux_amd64.tgz dest=/home/{{user}}/bin creates=/home/{{user}}/bin/fzf-{{ fzf_version }} copy=no
-  register: downloaded_fzf
-
-- name: Symlink FZF
-  sudo: false
-  file: src=/home/{{user}}/bin/fzf-{{ fzf_version }}-linux_amd64 dest=/home/{{user}}/bin/fzf state=link
-  when: downloaded_fzf.changed
+  unarchive:
+    src: https://github.com/junegunn/fzf-bin/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-linux_amd64.tgz
+    dest: /home/{{user}}/bin
+    creates: /home/{{user}}/bin/fzf
+    copy: no
 
 - name: Install selecta
   sudo: false
   get_url: url=https://raw.githubusercontent.com/garybernhardt/selecta/master/selecta dest=/home/{{user}}/bin/selecta mode=u+x
 
-- name: Is Git Kraken installed
-  stat: path=/usr/bin/gitkraken
-  register: git_kraken_stat
-
-- name: Install Git Kraken
-  sudo: true
-  apt: deb=https://release.gitkraken.com/linux/gitkraken-amd64.deb state=installed
-  when: git_kraken_stat.stat.exists == False
+# - name: Is Git Kraken installed
+#   stat: path=/usr/bin/gitkraken
+#   register: git_kraken_stat
+#
+# - name: Install Git Kraken
+#   sudo: true
+#   apt: deb=https://release.gitkraken.com/linux/gitkraken-amd64.deb state=installed
+#   when: git_kraken_stat.stat.exists == False
 
 - name: Install Screenfetch
   sudo: true

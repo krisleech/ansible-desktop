@@ -15,7 +15,7 @@
 
 - name: Build tools
   apt: name={{item}} state=installed
-  items:
+  with_items:
     - libtool
     -  libtool-bin
     -  autoconf

@@ -1,7 +1,8 @@
 ---
-- name: Add terminator repository
-  apt_repository: repo="ppa:gnome-terminator"
-  sudo: true
+# E:The repository 'http://ppa.launchpad.net/gnome-terminator/ppa/ubuntu bionic Release' does not have a Release file.
+# - name: Add terminator repository
+#   apt_repository: repo="ppa:gnome-terminator"
+#   sudo: true
 
 - name: Install Terminator
   apt: name=terminator state=installed

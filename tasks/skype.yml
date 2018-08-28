@@ -1,10 +1,13 @@
 ---
 # Install & Configure Skype
 
-- name: Add skype-wrapper repository
-  apt_repository: repo="deb http://archive.canonical.com/ xenial partner"
-  sudo: true
-
+# - name: Add skype-wrapper repository
+#   apt_repository: repo="deb http://archive.canonical.com/ bionic partner"
+#   sudo: true
+#
+# - name: Install Skype
+#   apt: name=skype state=latest
+#   sudo: true
+#
 - name: Install Skype
-  apt: name=skype state=latest
-  sudo: true
+  command: "snap install skype --classic"
