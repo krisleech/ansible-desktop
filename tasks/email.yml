@@ -1,0 +1,3 @@
+- name: Install Thunderbird
+  sudo: false
+  apt: name=thunderbird state=installed
