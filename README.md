@@ -26,24 +26,14 @@ Tested with:
 
 ## Installation
 
-Checkout the [Getting Started](https://github.com/krisleech/ansible-desktop/wiki/Getting-started) guide
-for an overview and examples of the recipies used.
-
-### Ansible
-
-Note: We use the Ansible PPA because the Ubuntu repository contains the older
-2.0 version.
-
 ```
-sudo add-apt-repository ppa:ansible/ansible
-sudo apt-get update
-sudo apt-get install git vim ansible
+sudo apt-get install git ansible
 git clone git@github.com:krisleech/ansible-desktop.git
 cd ansible-desktop
 ```
 
-You can also install Ansible from [source](http://docs.ansible.com/ansible/intro_installation.html).
-
+Checkout the [Getting Started](https://github.com/krisleech/ansible-desktop/wiki/Getting-started) guide
+for an overview and examples of the recipies used.
 
 ## Configure
 
