@@ -30,3 +30,6 @@
 - name: Chicken (Scheme to C)
   apt: name=chicken-bin state=installed
 
+# The Cursive plugin needs to be installed manually with license.
+- name: IDEA IDE (Jetbrains)
+  command: snap install intellij-idea-community --classic

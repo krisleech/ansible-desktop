@@ -1,0 +1,3 @@
+# no snap module for ansible yet.
+- name: Electrum (bitcoin) Wallet
+  command: snap install electrum

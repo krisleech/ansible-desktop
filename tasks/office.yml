@@ -1,0 +1,5 @@
+- name: Shotwell (photo manager)
+  apt: name=shotwell state=present
+
+- name: Libre Office
+  apt: name=libreoffice state=present

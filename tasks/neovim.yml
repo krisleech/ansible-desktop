@@ -30,9 +30,9 @@
 - name: Install Python client for NeoVim
   pip: name=neovim
 
-# FIXME: fails due to need for user input on fresh install
+# FIXME: hangs because can't find color scheme
+# https://github.com/junegunn/vim-plug/issues/730
 # - name: Install NeoVIM plugins
 #   become: false
-#   command: nvim -c "PlugInstall | qa!"
+#   shell: vim +'PlugInstall --sync' +qall &> /dev/null < /dev/tty
 #   when: stat_nvim.stat.exists == False
-
