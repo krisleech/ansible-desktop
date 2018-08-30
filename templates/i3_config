@@ -21,12 +21,12 @@ workspace_auto_back_and_forth yes
 
 # Copy/Paste with Super key (MacOS bindings)
 bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
-bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+# bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 bindsym --release $mod+x exec --no-startup-id xdotool key --clearmodifiers ctrl+x
 
 # Close windows/apps with Super key (MacOS bindings)
 bindsym --release $mod+w exec --no-startup-id xdotool key --clearmodifiers ctrl+w
-bindsym --release $mod+q kill
+bindsym $mod+q kill
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -186,7 +186,7 @@ for_window [class="Alarms"] move container to workspace 2
 # gpg-agent --homedir /home/kris/.gnupg --use-standard-socket --daemon
 exec --no-startup-id setxkbmap us
 exec --no-startup-id dropbox start
-exec --no-startup-id compton -CGb --config ~/.config/compton/compton.conf
+exec --no-startup-id compton -CGb
 exec --no-startup-id feh --bg-scale /usr/share/backgrounds/desktop.jpeg
 exec --no-startup-id i3-msg 'workspace 2; exec alarm-clock-applet;'
 exec --no-startup-id i3-msg 'exec thunderbird;'
