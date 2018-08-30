@@ -1,3 +1,7 @@
 - name: Install Thunderbird
-  sudo: false
   apt: name=thunderbird state=installed
+
+# fixes "huge emoticons" in Thunderbird issue
+# https://ubuntu-mate.community/t/thunderbird-with-huge-icons-emoticons-mate-18-04/16249/41
+- name: Install Fonts
+  apt: name=fonts-symbola state=present
