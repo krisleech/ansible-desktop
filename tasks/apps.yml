@@ -62,3 +62,6 @@
 #- name: Redshift
 #  sudo: true
 #  apt: name=redshift-gtk state=installed
+
+- name: Install media codecs
+  apt: name=ubuntu-restricted-extras state=present
