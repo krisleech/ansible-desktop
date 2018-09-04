@@ -3,3 +3,6 @@
 
 - name: Libre Office
   apt: name=libreoffice state=present
+
+- name: Sound Recorder
+  apt: name=gnome-sound-recorder state=present
