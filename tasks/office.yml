@@ -6,3 +6,6 @@
 
 - name: Sound Recorder
   apt: name=gnome-sound-recorder state=present
+
+- name: Flameshot (Screenshots with annotations)
+  apt: name=flameshot state=present
