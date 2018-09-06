@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(git bundler)
+plugins=(git bundler vi-mode)
 
 # User configuration
 
