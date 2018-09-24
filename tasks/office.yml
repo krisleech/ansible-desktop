@@ -9,3 +9,7 @@
 
 - name: Flameshot (Screenshots with annotations)
   apt: name=flameshot state=present
+
+- name: Transmission (bitorrent client)
+  apt: name=transmission state=present
+
