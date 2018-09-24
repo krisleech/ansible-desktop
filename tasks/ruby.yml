@@ -22,3 +22,7 @@
   become: false
   template: src=templates/irbrc dest=/home/{{user}}/.irbrc
 
+- name: Persist Pry history (.pryrc)
+  become: false
+  template: src=templates/pryrc dest=/home/{{user}}/.pryrc
+
