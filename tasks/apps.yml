@@ -65,3 +65,7 @@
 
 - name: Install media codecs
   apt: name=ubuntu-restricted-extras state=present
+
+- name: Install Markdown
+  sudo: true
+  apt: name=markdown state=installed
