@@ -19,6 +19,7 @@
     - silversearcher-ag
     - entr
     - baobab
+    - dstat
 
 - name: Copy Dotfiles
   become: false
