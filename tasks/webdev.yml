@@ -1,3 +1,7 @@
 - name: Install Apache Utils (includes ab)
   sudo: true
   apt: name=apache2-utils state=present
+
+# no snap module for ansible yet.
+- name: Postman API client
+  command: snap install postman
