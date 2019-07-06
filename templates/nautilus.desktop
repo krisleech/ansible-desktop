@@ -2,7 +2,7 @@
 NotShowIn=GNOME
 Name=Files
 Comment=Access and organize files
-Exec=nautilus --new-window --no-desktop
+Exec=nautilus --new-window
 Terminal=false
 Type=Application
 
@@ -10,7 +10,7 @@ Type=Application
 NotShowIn=GNOME
 Name=Nautilus
 Comment=Access and organize files
-Exec=nautilus --new-window --no-desktop
+Exec=nautilus --new-window
 Terminal=false
 Type=Application
 
@@ -18,6 +18,6 @@ Type=Application
 NotShowIn=GNOME
 Name=nautilus
 Comment=Access and organize files
-Exec=nautilus --new-window --no-desktop
+Exec=nautilus --new-window
 Terminal=false
 Type=Application

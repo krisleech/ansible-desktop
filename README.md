@@ -5,7 +5,7 @@ A simple and quick way to provision your development machine.
 Tested with:
 
 * Ansible 2.6
-* Ubuntu 18.04 (bionic)
+* Ubuntu 19.04
 
 ## Features
 
