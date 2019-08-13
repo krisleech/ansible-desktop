@@ -33,3 +33,11 @@
 # The Cursive plugin needs to be installed manually with license.
 - name: IDEA IDE (Jetbrains)
   command: snap install intellij-idea-community --classic
+
+- name: Add Racket (LISP) PPA
+  apt_repository: repo="ppa:plt/racket" state=present
+  sudo: true
+
+- name: Install Racket (LISP)
+  sudo: true
+  apt: name=racket state=present
