@@ -2,6 +2,9 @@
 - name: Install XClip (copy/paste for the terminal)
   apt: name=xclip state=present
 
+- name: Install ctags
+  apt: name=exuberant-ctags state=present
+
 - name: Check NeoVIM installed
   stat: path=/usr/bin/nvim
   register: stat_nvim
